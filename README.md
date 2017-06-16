@@ -1,5 +1,7 @@
 # 4d-plugin-picture-taker
 
+Simple picture taker panel for macOS
+
 4D implementation of [IKPictureTaker](https://developer.apple.com/documentation/quartz/ikpicturetaker?language=objc)
 
 ### Platform
