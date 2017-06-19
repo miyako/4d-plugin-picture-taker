@@ -19,28 +19,29 @@ See [ImageKit Programming Guide](https://developer.apple.com/library/content/doc
 ## Syntax
 
 ```
-DISPLAY PICTURE TAKER (picture{;options{;window}})
+DISPLAY PICTURE TAKER (picture{;options})
 ```
 
 Parameter|Type|Description
 ------------|------------|----
 picture|PICTURE|default picture, picture taken
 options|TEXT|options in JSON format; supported attributes are listed below
-window|LONGINT|launch picture taker as a sheet for this window
 
 * Options
 
 ``showEffects`` (boolean)
 
+``showRecentPicture`` (boolean)
+
+``showAddressBookPicture`` (boolean)
+
 ``allowsVideoCapture`` (boolean)
 
 ``allowsFileChoosing`` (boolean)
 
-``showRecentPicture`` (boolean)
+``allowsEditing`` (boolean)
 
 ``updateRecentPicture`` (boolean)
-
-``allowsEditing`` (boolean)
 
 ``informationalText`` (text)
 
