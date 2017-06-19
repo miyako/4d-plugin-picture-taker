@@ -19,7 +19,7 @@ See [ImageKit Programming Guide](https://developer.apple.com/library/content/doc
 ## Syntax
 
 ```
-TAKE PICTURE (picture{;options{;window}})
+DISPLAY PICTURE TAKER (picture{;options{;window}})
 ```
 
 Parameter|Type|Description
