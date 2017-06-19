@@ -19,15 +19,15 @@ See [ImageKit Programming Guide](https://developer.apple.com/library/content/doc
 ## Syntax
 
 ```
-DISPLAY PICTURE TAKER (picture{;options})
+DISPLAY PICTURE TAKER (picture{;options{;OK}})
 ```
 
 Parameter|Type|Description
 ------------|------------|----
 picture|PICTURE|default picture, picture taken
 options|TEXT|options in JSON format; supported attributes are listed below
+OK|LONGINT|``1`` if the dialog was validated
 
-``$3`` (LONGINT) is not used
 
 * Options
 
