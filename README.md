@@ -44,9 +44,9 @@ window|LONGINT|launch picture taker as a sheet for this window
 
 ``informationalText`` (text)
 
-``CropAreaWidth`` (integer)
+``cropAreaWidth`` (integer)
 
-``CropAreaHeight`` (integer)
+``cropAreaHeight`` (integer)
 
 ``outputImageMaxWidth`` (integer)
 
