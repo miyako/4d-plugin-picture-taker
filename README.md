@@ -15,3 +15,39 @@ Simple picture taker panel for macOS
 <img src="https://cloud.githubusercontent.com/assets/1725068/18940649/21945000-8645-11e6-86ed-4a0f800e5a73.png" width="32" height="32" /> <img src="https://cloud.githubusercontent.com/assets/1725068/18940648/2192ddba-8645-11e6-864d-6d5692d55717.png" width="32" height="32" />
 
 See [ImageKit Programming Guide](https://developer.apple.com/library/content/documentation/GraphicsImaging/Conceptual/ImageKitProgrammingGuide/IKImagePicker/IKImagePicker.html) for more information.
+
+## Syntax
+
+```
+SAY (picture{;options{;window}})
+```
+
+Parameter|Type|Description
+------------|------------|----
+picture|PICTURE|default picture, picture taken
+options|TEXT|options in JSON format; supported attributes are listed below
+window|LONGINT|launch picture taker as a sheet for this window
+
+* Options
+
+``showEffects`` (boolean)
+
+``allowsVideoCapture`` (boolean)
+
+``allowsFileChoosing`` (boolean)
+
+``showRecentPicture`` (boolean)
+
+``updateRecentPicture`` (boolean)
+
+``allowsEditing`` (boolean)
+
+``informationalText`` (text)
+
+``CropAreaWidth`` (integer)
+
+``CropAreaHight`` (integer)
+
+``outputImageMaxWidth`` (integer)
+
+``outputImageMaxHight`` (integer)
