@@ -54,3 +54,21 @@ OK|LONGINT|``1`` if the dialog was validated
 ``outputImageMaxWidth`` (integer)
 
 ``outputImageMaxHeight`` (integer)
+
+
+### Examples
+
+```
+C_PICTURE($picture)
+READ PICTURE FILE(Get 4D folder(Current resources folder)+"4D.png";$picture)
+
+C_OBJECT($options)
+OB SET($options;"allowsEditing";False;"allowsFileChoosing";False)
+
+DISPLAY PICTURE TAKER ($picture;JSON Stringify($options);$OK)
+
+SET PICTURE TO PASTEBOARD($picture)
+```
+
+![2017-06-19 12 21 31](https://user-images.githubusercontent.com/1725068/27268424-52ad2364-54ea-11e7-89f4-b0d8ef3a7658.png)
+
