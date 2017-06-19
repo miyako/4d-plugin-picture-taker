@@ -27,6 +27,8 @@ Parameter|Type|Description
 picture|PICTURE|default picture, picture taken
 options|TEXT|options in JSON format; supported attributes are listed below
 
+``$3`` (LONGINT) is not used
+
 * Options
 
 ``showEffects`` (boolean)
