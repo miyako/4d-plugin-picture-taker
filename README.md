@@ -69,6 +69,3 @@ DISPLAY PICTURE TAKER ($picture;JSON Stringify($options);$OK)
 
 SET PICTURE TO PASTEBOARD($picture)
 ```
-
-![2017-06-19 12 21 31](https://user-images.githubusercontent.com/1725068/27268424-52ad2364-54ea-11e7-89f4-b0d8ef3a7658.png)
-
