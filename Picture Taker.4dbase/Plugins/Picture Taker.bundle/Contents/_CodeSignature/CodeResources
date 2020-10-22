@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eyZ9e1UvvEq7DNL0YE6AE1ZgVXg=
+			NuTiatlG7ShHuKuoMx9UXw0Vptg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -109,18 +109,13 @@
 		<data>
 		UbZYnK1QdI2HA5cO0/aNT2a+ucQ=
 		</data>
+		<key>Resources/manifest.json</key>
+		<data>
+		NGLHFRAO6/cPDRjru2hTEiQQyzU=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>MacOS/Picture Taker.html</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			/Q5WNFQaZeJEuKdlDdqxIGltAok=
-			</data>
-			<key>requirement</key>
-			<string>identifier "Picture Taker" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
-		</dict>
 		<key>QuickLook/Thumbnail.png</key>
 		<dict>
 			<key>hash</key>
@@ -389,11 +384,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eyZ9e1UvvEq7DNL0YE6AE1ZgVXg=
+			NuTiatlG7ShHuKuoMx9UXw0Vptg=
 			</data>
 			<key>hash2</key>
 			<data>
-			FkQ4x8SgVrlxvd9Uh7HD59wqfJzCiSn78gv1yfzQr5g=
+			EA/JCnHDhP9v4N1yDw5S9K9TM0zW8yu9r42xU2Koqa0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -409,6 +404,17 @@
 			7t2nF9u/4W05GOd8UQ7QAt/PFge16k3ydWYX/6ElmJk=
 			</data>
 		</dict>
+		<key>Resources/manifest.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NGLHFRAO6/cPDRjru2hTEiQQyzU=
+			</data>
+			<key>hash2</key>
+			<data>
+			7qV9fLg5bXSMARzX0CK5WYWv7WJN9qRvk29cejNBBSk=
+			</data>
+		</dict>
 		<key>Windows/Picture Taker.4DX</key>
 		<dict>
 			<key>hash</key>
@@ -418,17 +424,6 @@
 			<key>hash2</key>
 			<data>
 			rp5mwPoToTOMBrO5g9ATVRBDkkR1XpJE6MF06FX5mo0=
-			</data>
-		</dict>
-		<key>Windows/Picture Taker.html</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3f3hE90+GMuzyHmK9RVQvLK+Zs8=
-			</data>
-			<key>hash2</key>
-			<data>
-			EKLRdLPtg+PsdxOrCPdnhlHZLbWCJYLapu/sbQTYgHg=
 			</data>
 		</dict>
 		<key>Windows64/Picture Taker.4DX</key>
@@ -441,26 +436,6 @@
 			<data>
 			D81BlAXC8IYBjKsGDu0nx8Zm3OxlDG6/r2pFvj/FY7A=
 			</data>
-		</dict>
-		<key>Windows64/Picture Taker.html</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3f3hE90+GMuzyHmK9RVQvLK+Zs8=
-			</data>
-			<key>hash2</key>
-			<data>
-			EKLRdLPtg+PsdxOrCPdnhlHZLbWCJYLapu/sbQTYgHg=
-			</data>
-		</dict>
-		<key>manifest.json</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			sypKiihu1s09DTucGnT0Njy8Tw0=
-			</data>
-			<key>requirement</key>
-			<string>identifier manifest and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
 		</dict>
 	</dict>
 	<key>rules</key>
