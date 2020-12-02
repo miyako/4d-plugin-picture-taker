@@ -1,3 +1,7 @@
+![platform](https://img.shields.io/static/v1?label=platform&message=osx-64&color=blue)
+[![license](https://img.shields.io/github/license/miyako/4d-plugin-picture-taker)](LICENSE)
+![downloads](https://img.shields.io/github/downloads/miyako/4d-plugin-picture-taker/total)
+
 # 4d-plugin-picture-taker
 
 Simple picture taker panel for macOS
