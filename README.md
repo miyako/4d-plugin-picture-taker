@@ -1,4 +1,5 @@
 ![platform](https://img.shields.io/static/v1?label=platform&message=osx-64&color=blue)
+![version](https://img.shields.io/badge/version-17%2B-3E8B93)
 [![license](https://img.shields.io/github/license/miyako/4d-plugin-picture-taker)](LICENSE)
 ![downloads](https://img.shields.io/github/downloads/miyako/4d-plugin-picture-taker/total)
 
@@ -7,10 +8,6 @@
 Simple picture taker panel for macOS
 
 4D implementation of [IKPictureTaker](https://developer.apple.com/documentation/quartz/ikpicturetaker?language=objc)
-
-### Version
-
-<img width="32" height="32" src="https://user-images.githubusercontent.com/1725068/73986501-15964580-4981-11ea-9ac1-73c5cee50aae.png"> <img src="https://user-images.githubusercontent.com/1725068/73987971-db2ea780-4984-11ea-8ada-e25fb9c3cf4e.png" width="32" height="32" />
 
 See [ImageKit Programming Guide](https://developer.apple.com/library/content/documentation/GraphicsImaging/Conceptual/ImageKitProgrammingGuide/IKImagePicker/IKImagePicker.html) for more information.
 
