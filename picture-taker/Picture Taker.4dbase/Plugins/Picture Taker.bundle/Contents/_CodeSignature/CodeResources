@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NuTiatlG7ShHuKuoMx9UXw0Vptg=
+			pzWp1LBhwnkG7sHkXstHFegtzLM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -384,11 +384,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NuTiatlG7ShHuKuoMx9UXw0Vptg=
+			pzWp1LBhwnkG7sHkXstHFegtzLM=
 			</data>
 			<key>hash2</key>
 			<data>
-			EA/JCnHDhP9v4N1yDw5S9K9TM0zW8yu9r42xU2Koqa0=
+			hLlFiaeCond+KxCV8RQF07VurCpWZAAddKF6pJipxEU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -413,17 +413,6 @@
 			<key>hash2</key>
 			<data>
 			7qV9fLg5bXSMARzX0CK5WYWv7WJN9qRvk29cejNBBSk=
-			</data>
-		</dict>
-		<key>Windows/Picture Taker.4DX</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8WH79l2tgViHfCYSUBu+HCIQ5Es=
-			</data>
-			<key>hash2</key>
-			<data>
-			rp5mwPoToTOMBrO5g9ATVRBDkkR1XpJE6MF06FX5mo0=
 			</data>
 		</dict>
 		<key>Windows64/Picture Taker.4DX</key>

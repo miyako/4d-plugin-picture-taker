@@ -45,99 +45,7 @@ void CommandDispatcher (PA_long32 pProcNum, sLONG_PTR *pResult, PackagePtr pPara
 
 #pragma mark JSON
 
-JSONNODE *json_parse_text_param(C_TEXT &t)
-{
-	std::wstring u32;
-	
-	uint32_t dataSize = (t.getUTF16Length() * sizeof(wchar_t))+ sizeof(wchar_t);
-	std::vector<char> buf(dataSize);
-	
-	PA_ConvertCharsetToCharset((char *)t.getUTF16StringPtr(),
-														 t.getUTF16Length() * sizeof(PA_Unichar),
-														 eVTC_UTF_16,
-														 (char *)&buf[0],
-														 dataSize,
-														 eVTC_UTF_32);
-	
-	u32 = std::wstring((wchar_t *)&buf[0]);
-
-	return json_parse((json_const json_char *)u32.c_str());
-}
-
 #pragma mark -
-
-void picture_taker_set_bool(JSONNODE *node, json_const json_char * name, NSString *key)
-{
-	if(node)
-	{
-		node = json_get(node, name);
-		if(node)
-		{
-			json_bool_t bool_value = json_as_bool(node);
-			IKPictureTaker *pictureTaker = [IKPictureTaker pictureTaker];
-			
-			[pictureTaker setValue:[NSNumber numberWithBool:bool_value]
-											forKey:key];
-		}
-	}
-}
-
-void picture_taker_set_text(JSONNODE *node, json_const json_char * name, NSString *key)
-{
-	if(node)
-	{
-		node = json_get(node, name);
-		if(node)
-		{
-			json_char *text_value = json_as_string(node);
-			
-			std::wstring wstr = std::wstring(text_value);
-			C_TEXT t;
-			
-			uint32_t dataSize = (wstr.length() * sizeof(wchar_t))+ sizeof(PA_Unichar);
-			std::vector<char> buf(dataSize);
-			
-			uint32_t len = PA_ConvertCharsetToCharset((char *)wstr.c_str(),
-																								wstr.length() * sizeof(wchar_t),
-																								eVTC_UTF_32,
-																								(char *)&buf[0],
-																								dataSize,
-																								eVTC_UTF_16);
-			
-			t.setUTF16String((const PA_Unichar *)&buf[0], len);
-
-			json_free(text_value);
-			
-			NSString *s = t.copyUTF16String();
-			
-			IKPictureTaker *pictureTaker = [IKPictureTaker pictureTaker];
-			
-			[pictureTaker setValue:[NSString stringWithString:s]
-											forKey:key];
-			[s release];
-		}
-	}
-}
-
-void picture_taker_set_size(JSONNODE *node, json_const json_char * name1, json_const json_char * name2, NSString *key)
-{
-	if(node)
-	{
-		node = json_get(node, name1);
-		if(node)
-		{
-			json_int_t int_value_1 = json_as_int(node);
-			node = json_get(node, name2);
-			if(node)
-			{
-				json_int_t int_value_2 = json_as_int(node);
-				IKPictureTaker *pictureTaker = [IKPictureTaker pictureTaker];
-				[pictureTaker setValue:[NSValue valueWithSize:NSMakeSize(int_value_1,int_value_2)] forKey:key];
-			}
-		}
-	}
-}
-
 
 void _DISPLAY_PICTURE_TAKER(PackagePtr pParams)
 {
@@ -157,27 +65,92 @@ void _DISPLAY_PICTURE_TAKER(PackagePtr pParams)
 
 	C_TEXT Param2;
 	Param2.fromParamAtIndex(pParams, 2);
-	JSONNODE *json = json_parse_text_param(Param2);
-	if(json)
-	{
-		//default:YES
-		picture_taker_set_bool(json, L"allowsVideoCapture", IKPictureTakerAllowsVideoCaptureKey);
-		picture_taker_set_bool(json, L"allowsFileChoosing", IKPictureTakerAllowsFileChoosingKey);
-		picture_taker_set_bool(json, L"showRecentPicture", IKPictureTakerShowRecentPictureKey);
-		picture_taker_set_bool(json, L"updateRecentPicture", IKPictureTakerUpdateRecentPictureKey);
-		picture_taker_set_bool(json, L"allowsEditing", IKPictureTakerAllowsEditingKey);
+    
+    CUTF8String Param2_u8;
+    Param2.copyUTF8String(&Param2_u8);
+    
+    Json::Value root;
+    Json::CharReaderBuilder builder;
+    std::string errors;
+    
+    Json::CharReader *reader = builder.newCharReader();
+    bool parse = reader->parse((const char *)Param2_u8.c_str(),
+                               (const char *)Param2_u8.c_str() + Param2_u8.size(),
+                               &root,
+                               &errors);
+    
+    delete reader;
+    
+    if(parse)
+    {
+        if(root.isObject())
+        {
+            IKPictureTaker *pictureTaker = [IKPictureTaker pictureTaker];
 
-		//default:NO
-		picture_taker_set_bool(json, L"showEffects", IKPictureTakerShowEffectsKey);
-		picture_taker_set_bool(json, L"showAddressBookPicture", IKPictureTakerShowAddressBookPictureKey);
-//		picture_taker_set_bool(json, L"remainOpenAfterValidate", IKPictureTakerRemainOpenAfterValidateKey);
-
-		picture_taker_set_size(json, L"cropAreaWidth", L"cropAreaHeight", IKPictureTakerCropAreaSizeKey);//deprecated
-		picture_taker_set_size(json, L"outputImageMaxWidth", L"outputImageMaxHeight", IKPictureTakerOutputImageMaxSizeKey);
-		
-		json_delete(json);
-	}
-
+            //default:YES
+            
+            Json::Value allowsVideoCapture = root["allowsVideoCapture"];
+            if(allowsVideoCapture.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:allowsVideoCapture.asBool()]
+                                forKey:IKPictureTakerAllowsVideoCaptureKey];
+            }
+            
+            Json::Value allowsFileChoosing = root["allowsFileChoosing"];
+            if(allowsFileChoosing.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:allowsFileChoosing.asBool()]
+                                forKey:IKPictureTakerAllowsFileChoosingKey];
+            }
+            
+            Json::Value showRecentPicture = root["showRecentPicture"];
+            if(showRecentPicture.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:showRecentPicture.asBool()]
+                                forKey:IKPictureTakerShowRecentPictureKey];
+            }
+            
+            Json::Value updateRecentPicture = root["updateRecentPicture"];
+            if(updateRecentPicture.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:updateRecentPicture.asBool()]
+                                forKey:IKPictureTakerUpdateRecentPictureKey];
+            }
+            
+            Json::Value allowsEditing = root["allowsEditing"];
+            if(allowsEditing.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:allowsEditing.asBool()]
+                                forKey:IKPictureTakerAllowsEditingKey];
+            }
+            
+            //default:NO
+            
+            Json::Value showEffects = root["showEffects"];
+            if(showEffects.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:showEffects.asBool()]
+                                forKey:IKPictureTakerShowEffectsKey];
+            }
+            
+            Json::Value showAddressBookPicture = root["showAddressBookPicture"];
+            if(showAddressBookPicture.isBool()) {
+                [pictureTaker setValue:[NSNumber numberWithBool:showAddressBookPicture.asBool()]
+                                forKey:IKPictureTakerShowAddressBookPictureKey];
+            }
+            
+            //
+            
+            Json::Value cropAreaWidth = root["cropAreaWidth"];
+            Json::Value cropAreaHeight = root["cropAreaHeight"];
+            if((cropAreaWidth.isNumeric()) && (cropAreaHeight.isNumeric())) {
+                [pictureTaker setValue:[NSValue valueWithSize:NSMakeSize(cropAreaWidth.asInt(), cropAreaHeight.asInt())]
+                                forKey:IKPictureTakerCropAreaSizeKey];//deprecated
+            }
+            
+            Json::Value outputImageMaxWidth = root["outputImageMaxWidth"];
+            Json::Value outputImageMaxHeight = root["outputImageMaxHeight"];
+            if((outputImageMaxWidth.isNumeric()) && (outputImageMaxHeight.isNumeric())) {
+                [pictureTaker setValue:[NSValue valueWithSize:NSMakeSize(outputImageMaxWidth.asInt(), outputImageMaxHeight.asInt())]
+                                forKey:IKPictureTakerOutputImageMaxSizeKey];
+            }
+        }
+    }
+    
 	C_LONGINT Param3;
 	Param3.fromParamAtIndex(pParams, 3);
 	
